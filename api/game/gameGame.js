@@ -21,20 +21,18 @@
 // });
 //================================================================================
 
-
+var path = require('path');
 let fs = require('fs');
-let dickButt = function () {
-    return 'bravo';
-};
-
-
-fs.readFile('/testRead',dickButt);
-// fs.readFile('/testRead', (err, data) => {
-//     if (err) throw err;
-//     console.log(data);
-// });
-
-
+var readStuff ='';
+fs.readFile(path.join(__dirname+'/gameJSON.json'),'utf-8',(err, data) => {
+    if (err) {
+        console.log(err);
+    }
+    readStuff = data; // IF IS JSON, SHOULD PARSE TO UTILISE THE DATA
+    module.exports.a = readStuff; // update the details in module.exports
+    console.log(readStuff);
+});
 module.exports = {
-    a: dickButt
+    a: readStuff // this stays as an empty string unless its updated
 };
+console.log(readStuff);
