@@ -1,25 +1,4 @@
 'use strict';
-//============================================
-// var openFile = function () {
-//     var path = require('path');
-//     var input = path.join((__dirname+'/testRead.txt'));
-
-//     var reader = new FileReader();
-//     reader.onload = function () {
-//         var dataURL = reader.result;
-//         var output = document.getElementById('output');
-//         output.src = dataURL;
-//     };
-//     console.log(reader.readAsDataURL(input.files[0]));
-// };
-// openFile;
-//=============================================================================
-// var jsonfile = require('jsonfile');
-// var file = './gameJSON.json';
-// jsonfile.readFile(file, function (err, obj) {
-//     console.log(obj);
-// });
-//================================================================================
 
 var path = require('path');
 let fs = require('fs');
@@ -28,8 +7,12 @@ fs.readFile(path.join(__dirname+'/gameJSON.json'),'utf-8',(err, data) => {
     if (err) {
         console.log(err);
     }
-    readStuff = data; // IF IS JSON, SHOULD PARSE TO UTILISE THE DATA
-    module.exports.a = readStuff; // update the details in module.exports
+    readStuff = data;
+    var parsedDATA = JSON.parse(readStuff); // parsing JSON to utilise as an object
+    console.log(parsedDATA); // logging to show test data
+    parsedDATA.name = 'newParsedStuff'; // utilise the functionality of an object to make sure its been parsed
+    readStuff = parsedDATA; 
+    module.exports.a = parsedDATA; // update the details in module.exports
     console.log(readStuff);
 });
 module.exports = {
