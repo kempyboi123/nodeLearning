@@ -3,7 +3,7 @@
 var path = require('path');
 let fs = require('fs');
 var readStuff = '';
-fs.readFile(path.join(__dirname + '/gameJSON.json'), 'utf-8', (err, data) => {
+fs.readFile(path.join(__dirname + '/save.json'), 'utf-8', (err, data) => {
     if (err) {
         console.log(err);
     }
@@ -15,7 +15,7 @@ fs.readFile(path.join(__dirname + '/gameJSON.json'), 'utf-8', (err, data) => {
     module.exports.a = parsedDATA; // update the details in module.exports
     console.log(readStuff);
     console.log(JSON.stringify(readStuff));
-    fs.writeFile(path.join(__dirname + '/gameJSON.json'), JSON.stringify(readStuff), 'utf-8', (err) => {
+    fs.writeFile(path.join(__dirname + '/save.json'), JSON.stringify(readStuff), 'utf-8', (err) => {
         if (err) throw err;
         console.log('It\'s saved!');
     });

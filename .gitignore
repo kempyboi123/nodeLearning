@@ -38,3 +38,6 @@ jspm_packages
 
 #ignoring vscode stuff
 .vscode/settings.json
+
+# game save files
+api/game/save.json
