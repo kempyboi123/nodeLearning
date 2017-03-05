@@ -6,9 +6,16 @@ module.exports = function (router) {
 
     router.get('/game', function (req, res) {
         var butt = 'how bout da';
-        res.send(butt);
         console.log('game index get called');
-        console.log(gameImports.a);
+        gameImports.getSettings((err, save) => {
+            console.log('save loaded');
+            if(err)
+            {
+                res.status(500).send(err);
+                return;
+            }
+            res.send(save);
+        });
     });
 
     router.post('/game', function (req, res) {
