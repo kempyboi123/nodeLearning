@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/kempyboi123/nodeLearning.svg?branch=master)](https://github.com/kempyboi123/nodeLearning)
+
 `npm init` //to install npm and begin using it (this is effectively signing up for npm)
 install node
 `node mainScriptName.js`  // this will execute your script and provide any returns/logs
